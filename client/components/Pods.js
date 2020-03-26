@@ -72,7 +72,7 @@ const Pods = () => {
       setInterval(() => {
         console.log('setInterval called');
         fetchPods();
-      }, 5000);
+      }, 2000);
     };
     fetchOnLoad();
   }, []);
