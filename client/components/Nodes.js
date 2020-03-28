@@ -33,7 +33,7 @@ const Nodes = () => {
       setInterval(() => {
         console.log('setInterval called');
         fetchNodes();
-      }, 5000);
+      }, 3000);
     };
     fetchOnLoad();
   }, []);

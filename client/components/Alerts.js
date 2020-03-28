@@ -50,7 +50,7 @@ const Alerts = () => {
       setInterval(() => {
         console.log('setInterval called');
         fetchPods();
-      }, 5000);
+      }, 3000);
     };
     fetchOnLoad();
   }, []);

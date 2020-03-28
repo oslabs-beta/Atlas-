@@ -12,7 +12,6 @@ const AlertController = require('./controllers/AlertController');
 app.use(cors());
 app.use(express.json());
 
-// testing to get pods from api
 //changed to pods to test with postman
 app.get('/getPods', PodController.getPods, (req, res) => {
   res.status(200).json(res.locals.pod);

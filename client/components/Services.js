@@ -35,7 +35,7 @@ const Services = () => {
       setInterval(() => {
         console.log('setInterval called');
         fetchServices();
-      }, 5000);
+      }, 3000);
     };
     fetchOnLoad();
   }, []);
