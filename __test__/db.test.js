@@ -4,17 +4,17 @@ const alertData = { name: 'Test String', namespace: 'Kube Namespace', status: 'r
 
 describe('User Model Test', () => {
 
-    // beforeAll(async () => {
-    //     await mongoose.connect(global.__MONGO_URI__, { useNewUrlParser: true, useCreateIndex: true }, (err) => {
-    //         if (err) {
-    //             console.error(err);
-    //             process.exit(1);
-    //         }
-    //     });
-    // });
-  // afterAll(async () => {
-  //   mongoose.disconnect();
-  // })
+//     beforeAll(async () => {
+//         await mongoose.connect(global.__MONGO_URI__, { useNewUrlParser: true, useCreateIndex: true }, (err) => {
+//             if (err) {
+//                 console.error(err);
+//                 process.exit(1);
+//             }
+//         });
+//     });
+//   afterAll(async () => {
+//     mongoose.disconnect();
+//   })
     
     it('create & save alert successfully', async () => {
         const validAlert = await new alertModel(alertData);
