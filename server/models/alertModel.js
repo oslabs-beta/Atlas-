@@ -18,13 +18,14 @@ document schema should have name, date, location
 */
 
 const alertSchema = new Schema({
-  name: String,
-  namespace: String,
-  status: String,
-  podIP: String,
-  time: String,
+  name: {type: String, required: true},
+  namespace: {type: String, required: true},
+  status: {type: String, required: true},
+  podIP: {type: String, required: true},
+  time: {type: String, required: true},
 });
 
 const Alert = mongoose.model('alert', alertSchema);
 
-module.exports = { Alert };
+//changed to Alert from {Alert} to get schema for testing
+module.exports = Alert;

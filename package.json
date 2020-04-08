@@ -6,7 +6,11 @@
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack-dev-server --open --mode development",
-    "dev": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --open\" \"nodemon server/server.js\""
+    "dev": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --open\" \"nodemon server/server.js\"",
+    "test": "jest --runInBand --detectOpenHandles"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "proxy": "http://localhost:3000",
   "keywords": [],
@@ -17,6 +21,7 @@
     "@babel/plugin-transform-runtime": "^7.8.3",
     "@babel/preset-env": "^7.8.7",
     "@babel/preset-react": "^7.8.3",
+    "@shelf/jest-mongodb": "^1.1.5",
     "axios": "^0.19.2",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.4.2",
@@ -47,6 +52,7 @@
     "cross-env": "^7.0.2",
     "d3": "^5.15.0",
     "express": "^4.17.1",
+    "jest": "^25.2.7",
     "mongodb": "^3.5.5",
     "mongoose": "^5.9.6",
     "react": "^16.13.0",

@@ -32,4 +32,20 @@ apiRouter.post('/podAlerts', AlertController.addAlerts, (req, res) => {
   res.status(200).json(res.locals.alerts);
 });
 
+//added for testing
+const array = [];
+apiRouter.get('/', (req,res) => {
+  res.json({key: 'value'})
+});
+
+apiRouter.get('/test', (req,res) => {
+  res.json({array});
+})
+
+apiRouter.post('/test', (req,res) => {
+  array.push(req.body.item);
+  res.send('success')
+});
+
+
 module.exports = apiRouter;
