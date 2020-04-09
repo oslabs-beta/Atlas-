@@ -5,7 +5,7 @@ const NodeController = {};
 
 NodeController.getNodes = (req, res, next) => {
   //get data from kube api
-  kube.listNode('default').then(data => {
+  kube.listNode('default').then((data) => {
     const result = new NodeQuery(data);
     const nodeArray = [];
     for (let i = 0; i < result.name.length; i++) {
