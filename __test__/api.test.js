@@ -1,7 +1,7 @@
 const route = require('../server/routes/api');
-const request = require('supertest');
 const express = require('express');
 const app = express();
+const request = require('supertest');
 // const mongoose = require('mongoose');
 // const mongoDB = 'mongodb://127.0.0.1/my_test_database';
 

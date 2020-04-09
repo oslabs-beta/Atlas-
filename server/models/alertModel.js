@@ -27,5 +27,4 @@ const alertSchema = new Schema({
 
 const Alert = mongoose.model('alert', alertSchema);
 
-//changed to Alert from {Alert} to get schema for testing
-module.exports = Alert;
+module.exports = { Alert };
