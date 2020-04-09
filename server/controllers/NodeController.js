@@ -4,7 +4,6 @@ const { NodeQuery } = require('../query/NodeQuery');
 const NodeController = {};
 
 NodeController.getNodes = (req, res, next) => {
-  // console.log('test from inside NodeController');
   //get data from kube api
   kube.listNode('default').then(data => {
     const result = new NodeQuery(data);
@@ -16,7 +15,6 @@ NodeController.getNodes = (req, res, next) => {
       };
       nodeArray.push(obj);
     }
-    // console.log('nodeArr', nodeArray);
     res.locals.nodes = nodeArray;
     return next();
   });

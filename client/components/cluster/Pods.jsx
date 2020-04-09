@@ -1,4 +1,3 @@
-// display details and data about each Pod
 import React, { useState, useEffect, useRef } from 'react';
 import { Table } from 'react-bootstrap';
 import axios from 'axios';
@@ -13,8 +12,6 @@ const Pods = ({ data }) => {
   const [table, setTable] = useState([]); //pod data in table
   let children = [];
   data[0].children.map(child => children.push(...child.children));
-  // console.log('children', children);
-  // useEffect = Hook version of componentDidMount
   useEffect(() => {
     const podList = children.map((p, i) => {
       // check status - if "Running" then render green check circle

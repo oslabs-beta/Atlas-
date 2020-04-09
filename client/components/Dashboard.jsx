@@ -1,6 +1,5 @@
 import React from 'react';
 import { Nav, NavDropdown, NavItem } from 'react-bootstrap';
-import { BrowserRouter as Link, NavLink } from 'react-router-dom';
 
 import white from '../assets/whiteLogo.png';
 

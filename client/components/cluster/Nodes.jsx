@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { Table } from 'react-bootstrap';
-import axios from 'axios';
 
 const Nodes = ({ data }) => {
   const nodeList = data[0].children.map((data, index) => {

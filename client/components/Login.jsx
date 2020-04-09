@@ -3,7 +3,6 @@ import { Link, Redirect } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 import awsLogo from '../assets/awsLogo.png';
 import axios from 'axios';
-import aws4 from 'aws4';
 
 // login page gives the option to authenticate AWS credentials or use current-context
 const Login = () => {
@@ -19,17 +18,13 @@ const Login = () => {
   //function to authenticate credentials
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log('accessInfo', access);
     // make a request to the aws api with credentials. if data is returned then redirect.
     const accessData = await axios.post('/aws/clusters', {
       access,
     });
-    console.log('aD', accessData);
     if (accessData) {
       setClusters(accessData.data);
       setAuth(true);
-    } else {
-      console.log('none');
     }
   };
 

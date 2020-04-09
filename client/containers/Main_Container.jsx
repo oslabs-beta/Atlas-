@@ -3,7 +3,6 @@ import { BrowserRouter as useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import Loader from '../components/Loader.jsx';
-import RadialTree from '../components/visualizer/RadialTree.jsx';
 import Visualizer_Container from './Visualizer_Container.jsx';
 import Alerts_Container from './Alerts_Container.jsx';
 import Cluster_Container from './Cluster_Container.jsx';
@@ -113,13 +112,10 @@ const Main_Container = ({ path }) => {
 
     (function fetchOnLoad() {
       if (!data[0]) {
-        console.log('First fetch called');
         fetchInfo();
-        console.log('made it through');
       }
 
       setInt = setInterval(() => {
-        console.log('setInterval called');
         fetchInfo();
       }, 3000);
     })();

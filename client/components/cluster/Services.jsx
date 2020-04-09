@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Table } from 'react-bootstrap';
-import axios from 'axios';
 
 const Services = ({ data }) => {
   const [table, setTable] = useState([]);

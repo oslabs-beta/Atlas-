@@ -29,7 +29,7 @@ describe('User Model Test', () => {
     });
 
 
-    // We shouldn't be able to add in any field that isn't defined in the schema
+    // test to make sure we are not able to add in any field that isn't defined in the schema
     it('insert user successfully, but the field does not defined in schema should be undefined', async () => {
         const alertWithInvalidField = await new Alert({ name: 'Test String', namespace: 'Kube Namespace', status: 'running', podIP: '0123456', time: 'current time',  nickkname: 'aws Pod'});
         const savedAlertWithInvalidField = await alertWithInvalidField.save();
@@ -42,7 +42,7 @@ describe('User Model Test', () => {
     });
 
   
-    // It should not let us create without required fields
+    // test to make sure that we can not create an entry in database without required fields
     it('create alert without required field should failed', async () => {
         const alertWithoutRequiredField = await new Alert({ name: 'Test String', status: 'running', podIP: '0123456', time: 'current time' });
         let err;

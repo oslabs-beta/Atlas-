@@ -4,7 +4,6 @@ const aws4 = require('aws4');
 const AwsController = {};
 
 AwsController.cluster = async (req, res, next) => {
-  console.log('in aws cluster middleware');
   // access credentials and region should be in the request
   const credentials = {
     accessKeyId: req.body.access.accessKeyId,
@@ -19,12 +18,10 @@ AwsController.cluster = async (req, res, next) => {
   // create query with custom aws signature
   const query = aws4.sign(options, credentials);
   try {
-    console.log(query);
     const fetchCluster = await axios(
       `https://eks.${region}.amazonaws.com/clusters`,
       query
     );
-    console.log('data', fetchCluster.data);
     res.locals.clusters = fetchCluster.data.clusters;
     return next();
   } catch (err) {
@@ -33,7 +30,6 @@ AwsController.cluster = async (req, res, next) => {
 };
 
 AwsController.selectCluster = async (req, res, next) => {
-  console.log('in select middleware');
   const credentials = {
     accessKeyId: req.body.credentials.accessKeyId,
     secretAccessKey: req.body.credentials.secretAccessKey,
@@ -48,7 +44,6 @@ AwsController.selectCluster = async (req, res, next) => {
   // create query with custom aws signature
   const query = aws4.sign(options, credentials);
   try {
-    console.log(query);
     const fetchCluster = await axios(
       `https://eks.${region}.amazonaws.com/clusters/${name}`,
       query

@@ -39,7 +39,6 @@ const RadialTree = ({ data }) => {
   useEffect(() => {
     if (data.length !== 0) {
       // IF VALID DATA WAS PASSED
-      // console.log('data in radialTree', data)
       const svg = select(svgRef.current);
 
       // use dimensions from useResizeObserver,
@@ -51,7 +50,6 @@ const RadialTree = ({ data }) => {
       // transform hierarchical data
       //changing width dynamically distorts the graph
       const root = hierarchy(data[0]);
-      // console.log('root', root);
       const treeLayout = tree().size([2 * Math.PI, height / 1.5]);
 
       // radial tree link
@@ -65,10 +63,6 @@ const RadialTree = ({ data }) => {
 
       // enrich hierarchical data with coordinates
       treeLayout(root);
-
-      // console.log('root', root)
-      // console.log('rt descendants', root.descendants());
-      // console.log('rt links', root.links());
 
       // links
       //color should change depending on traffic
@@ -109,14 +103,10 @@ const RadialTree = ({ data }) => {
         })
         .attr('stroke', function(d) {
           let color = '#bfbfbf'; //base color = gray
-          // console.log('d',d);
           if (d.depth === 2) { //only for pods
             //change usage data from string to number
             let cpuUse = parseInt(d.data.usage.cpu.slice(0, -1));
             let memUse = parseInt(d.data.usage.memory.slice(0, -2));
-    
-            //sample
-            // if(d.data.name === 'megamarkets-58c64cc5b5-4vblk') cpuUse = 2;
     
             //if CPU usage increased, return red color
             if (cpuUse > 0) color = '#ee2c2c';

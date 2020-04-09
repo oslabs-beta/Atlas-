@@ -6,7 +6,6 @@ The Status field should be "Running" - any other status will indicate issues wit
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Table } from 'react-bootstrap';
-import Dashboard from '../components/Dashboard.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 
@@ -21,7 +20,6 @@ const Alerts = () => {
       const result = await axios.get('/api/podAlerts');
       alerts = []; //empty the alerts before updating with fetched data
       setAlerts(alerts.push(result.data));
-      console.log('alerts', alerts);
       const alertList = alerts[0].map((p, i) => {
         return (
           <tbody key={`tbody${i}`}>
@@ -44,11 +42,9 @@ const Alerts = () => {
     //update every 5 seconds
     const fetchOnLoad = () => {
       if (!alerts[0]) {
-        console.log('First fetch called');
         fetchPods();
       }
       setInterval(() => {
-        console.log('setInterval called');
         fetchPods();
       }, 5000);
     };

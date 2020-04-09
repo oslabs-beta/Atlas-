@@ -18,8 +18,6 @@ const Eks = (props) => {
     if (myCluster) {
       setMyCluster(myCluster);
       setAuth(true);
-    } else {
-      console.log('none');
     }
   };
 

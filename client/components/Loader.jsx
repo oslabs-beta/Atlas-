@@ -8,7 +8,6 @@ const Loader = ({ doneFetching, setStillLoading, path }) => {
   const [loadingNotFinished, setLoadingNotFinished] = useState(true);
   // settings for two Lottie animations
   let pathName = path.substring(1, path.length);
-  console.log(pathName, 'pathname from loader');
   const defaultOptionsLoading = {
     loop: true,
     autoplay: true,
@@ -38,10 +37,8 @@ const Loader = ({ doneFetching, setStillLoading, path }) => {
       doneFetchingTimer = setTimeout(() => {
         //set state
         setLoadingNotFinished(false);
-        console.log('doneFetchingTimer from loader');
         stillLoadingTimer = setTimeout(() => {
           setStillLoading(false);
-          console.log('stillLoadingTimer from loader');
         }, 700);
       }, 3300);
     }
