@@ -13,7 +13,6 @@ const Pods = ({ data }) => {
   const [table, setTable] = useState([]); //pod data in table
   let children = [];
   data[0].children.map(child => children.push(...child.children));
-  // console.log('children', children);
   // useEffect = Hook version of componentDidMount
   useEffect(() => {
     const podList = children.map((p, i) => {

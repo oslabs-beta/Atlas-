@@ -6,7 +6,11 @@
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack-dev-server --open --mode development",
-    "dev": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --open\" \"nodemon server/server.js\""
+    "dev": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --open\" \"nodemon server/server.js\"",
+    "test": "./node_modules/.bin/jest --no-cache"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "proxy": "http://localhost:3000",
   "keywords": [],
@@ -42,6 +46,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
     "@kubernetes/client-node": "^0.11.1",
+    "@shelf/jest-mongodb": "^1.1.5",
     "aws4": "^1.9.1",
     "bootstrap": "^4.4.1",
     "concurrently": "^5.1.0",
@@ -50,8 +55,11 @@
     "d3": "^5.15.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "jest": "^25.3.0",
     "js-base64": "^2.5.2",
+    "mockgoose": "^8.0.4",
     "mongodb": "^3.5.5",
+    "mongodb-memory-server": "^6.5.2",
     "mongoose": "^5.9.6",
     "react": "^16.13.0",
     "react-bootstrap": "^1.0.0-beta.17",
@@ -62,6 +70,7 @@
     "react-reveal": "^1.2.2",
     "react-router-dom": "^5.1.2",
     "reactstrap": "^8.4.1",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "supertest": "^4.0.2"
   }
 }

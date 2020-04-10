@@ -10,7 +10,6 @@ const cmd = require('node-cmd');
 const AwsController = {};
 
 AwsController.authToken = async (req, res, next) => {
-  console.log('in auth token');
   const credentials = {
     accessKeyId: req.body.credentials.accessKeyId,
     secretAccessKey: req.body.credentials.secretAccessKey,
@@ -42,7 +41,6 @@ AwsController.authToken = async (req, res, next) => {
 
 // fetch all AWS clusters associated to user
 AwsController.cluster = async (req, res, next) => {
-  console.log('in aws cluster middleware');
   // access credentials and region should be in the request
   const credentials = {
     accessKeyId: req.body.access.accessKeyId,
@@ -75,7 +73,6 @@ AwsController.cluster = async (req, res, next) => {
 
 // Select AWS cluster
 AwsController.selectCluster = async (req, res, next) => {
-  console.log('in aws select middleware');
   const credentials = {
     accessKeyId: req.body.credentials.accessKeyId,
     secretAccessKey: req.body.credentials.secretAccessKey,
@@ -104,7 +101,6 @@ AwsController.selectCluster = async (req, res, next) => {
 
 // fetch AWS pods
 AwsController.getPods = async (req, res, next) => {
-  console.log('in aws get pods');
   const options = {
     uri: `${res.locals.url}/api/v1/pods`,
     rejectUnauthorized: false,
@@ -140,7 +136,6 @@ AwsController.getPods = async (req, res, next) => {
 };
 
 AwsController.getNodes = async (req, res, next) => {
-  console.log('in aws get nodes');
   const options = {
     uri: `${res.locals.url}/api/v1/nodes`,
     rejectUnauthorized: false,
@@ -172,7 +167,6 @@ AwsController.getNodes = async (req, res, next) => {
 };
 
 AwsController.getServices = async (req, res, next) => {
-  console.log('in aws get services');
   const options = {
     uri: `${res.locals.url}/api/v1/services`,
     rejectUnauthorized: false,

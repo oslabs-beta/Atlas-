@@ -18,17 +18,13 @@ const Login = () => {
   //function to authenticate credentials
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log('accessInfo', access);
     // make a request to the aws api with credentials. if data is returned then redirect.
     const accessData = await axios.post('/aws/clusters', {
       access,
     });
-    console.log('aD', accessData);
     if (accessData) {
       setClusters(accessData.data);
       setAuth(true);
-    } else {
-      console.log('none');
     }
   };
 

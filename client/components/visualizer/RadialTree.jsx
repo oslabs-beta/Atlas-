@@ -33,7 +33,6 @@ const RadialTree = ({ data }) => {
 
   // will be called initially and on every data change
   useEffect(() => {
-    // console.log('data in radTree', data);
     if (data[0] !== undefined) {
       // IF VALID DATA WAS PASSED
       const svg = select(svgRef.current);
@@ -60,10 +59,6 @@ const RadialTree = ({ data }) => {
 
       // enrich hierarchical data with coordinates
       treeLayout(root);
-
-      // console.log('root', root)
-      // console.log('rt descendants', root.descendants());
-      // console.log('rt links', root.links());
 
       // links
       const enteringAndUpdatingLinks = svg
@@ -108,18 +103,6 @@ const RadialTree = ({ data }) => {
               //change usage data from string to number
               let cpuUse = parseInt(d.data.usage.cpu.slice(0, -1));
               let memUse = parseInt(d.data.usage.memory.slice(0, -2));
-
-              //update prev usage info if nonexistant
-              // if (!prevCpu[d.data.name]) { prevCpu[d.data.name] = cpuUse; console.log('added to obj')}
-              // else {
-              //   console.log('name, cpu and prev', d.data.name, cpuUse, prevCpu[d.data.name])
-              //   //usage increased => return red color
-              //   if (prevCpu[d.data.name] < cpuUse) color = '#ee2c2c';
-              //   //usage decreased => return green color
-              //   else if (prevCpu[d.data.name] > cpuUse) color = '#03e0a0';
-              //   //update
-              //   prevCpu[d.data.name] = cpuUse;
-              // }
 
               //if CPU usage increased, return red color
               if (cpuUse > 0) color = '#ee2c2c';
@@ -217,7 +200,6 @@ const RadialTree = ({ data }) => {
           if (node.depth === 2) return 'pod';
         });
 
-      // console.log('reanimate', reanimate);
       // animation
       if (reanimate) {
         //do not re-render animation if data is not updated

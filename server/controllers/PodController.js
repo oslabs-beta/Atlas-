@@ -4,7 +4,6 @@ const cmd = require('node-cmd');
 
 const PodController = {};
 
-// middleware to get pods upon loading the home page
 PodController.getPods = (req, res, next) => {
   // grabbing data from kube api
   kube.listNamespacedPod('default').then((data) => {
@@ -23,14 +22,12 @@ PodController.getPods = (req, res, next) => {
       };
       podArray.push(obj);
     }
-    // store in res.locals
     res.locals.pod = podArray;
-    // console.log('podArr', podArray);
     return next();
   });
 };
 
-// middleware to get pod usage info
+
 PodController.getPodUsage = (req, res, next) => {
   //cmd library to access CLI
   //using kubectl top pod

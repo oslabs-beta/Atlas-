@@ -1,20 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import Loader from '../components/Loader.jsx';
-import RadialTree from '../components/visualizer/RadialTree.jsx';
 import Visualizer_Container from './Visualizer_Container.jsx';
 import Alerts_Container from './Alerts_Container.jsx';
 import Cluster_Container from './Cluster_Container.jsx';
 
 const Main_Container = (props) => {
-  console.log('props test', props);
   const { path } = props;
   let awsApi;
   if (props.history.location.state) {
     awsApi = props.history.location.state.data;
-    console.log('awsAPI', awsApi);
   }
 
   //data to pass to children | pod, node, and service will fetched and put into data
@@ -104,7 +100,6 @@ const Main_Container = (props) => {
         podRes = awsApi.pods; //data on pods
         podUsageRes = awsApi.podUsage; //data on pod usage
       } else {
-        console.log('not working');
         const serviceReq = axios.get('/api/services');
         const nodeReq = axios.get('/api/nodes');
         const podReq = axios.get('/api/pods');
@@ -130,13 +125,10 @@ const Main_Container = (props) => {
     // fetching data call for initial load and every 3 seconds
     (function fetchOnLoad() {
       if (!data[0]) {
-        console.log('First fetch called');
         fetchInfo();
-        console.log('made it through');
       }
 
       setInt = setInterval(() => {
-        console.log('setInterval called');
         fetchInfo();
       }, 3000);
     })();
@@ -162,7 +154,6 @@ const Main_Container = (props) => {
         ) : (
           <Cluster_Container data={data} />
         )}
-        {console.log('awsData', data)}
       </div>
     </div>
   );

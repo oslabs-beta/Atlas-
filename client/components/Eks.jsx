@@ -29,8 +29,6 @@ const Eks = (props) => {
         podUsage: awsCluster.podUsage,
       });
       setAuth(true);
-    } else {
-      console.log('none');
     }
   };
 
@@ -48,7 +46,6 @@ const Eks = (props) => {
   // once cluster is selected, pass down data from aws api
   return (
     <>
-      {console.log('myCluster', myCluster)}
       {auth ? (
         <Redirect
           to={{

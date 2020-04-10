@@ -9,8 +9,6 @@ const AlertController = require('../controllers/AlertController');
 
 // fetch pods from K8 Api
 apiRouter.get('/pods', PodController.getPods, PodController.getPodUsage, (req, res) => {
-  // console.log('res.local.usage', res.locals.usage);
-  // res.status(200).json(res.locals.pod);
   res.status(200).json({pod:res.locals.pod, usage:res.locals.usage});
 });
 

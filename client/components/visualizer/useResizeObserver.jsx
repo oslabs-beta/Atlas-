@@ -1,6 +1,6 @@
 //custom react hook for dynamically-sized, responsive diagram
 //returns changed width and height of element
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 //for support in other browsers, i.e. Edge and Safari
 import ResizeObserver from 'resize-observer-polyfill';
 

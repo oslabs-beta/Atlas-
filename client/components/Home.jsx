@@ -15,7 +15,6 @@ const Home = (props) => {
   useEffect(() => {
     if (props.location.state) {
       const awsInfo = props.location.state.data;
-      console.log('awsInfo', awsInfo);
       if (awsInfo) {
         setAwsData({
           ...awsData,
@@ -23,14 +22,11 @@ const Home = (props) => {
           nodes: awsInfo.nodes,
           services: awsInfo.services,
         });
-      } else {
-        console.log('none');
       }
     }
   }, []);
   return (
     <>
-      {console.log('awsData', awsData)}
       {awsData !== 0 ? (
         <Redirect
           to={{

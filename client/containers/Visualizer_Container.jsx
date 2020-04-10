@@ -1,9 +1,8 @@
 //traffic view of kubernetes clusters/individual pods
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import RadialTree from '../components/visualizer/RadialTree.jsx';
 
 const Visualizer = (props) => {
-  // console.log(props, 'props from vis');
   let data = [props.data[1]];
 
   return (
